@@ -1,0 +1,21 @@
+{
+  "name": "playwright_framework_ts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx playwright test",
+    "test-ui": "npx playwright test --ui",
+    "test-chromium": "npx playwright test --project=chromium",
+    "test-debug": "npx playwright test --debug",
+    "test-codegen": "npx playwright codegen",
+    "report": "npx playwright show-report"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.40.1",
+    "@types/node": "^20.10.4"
+  }
+}
