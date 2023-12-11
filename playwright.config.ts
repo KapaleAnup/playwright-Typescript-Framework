@@ -10,13 +10,14 @@ import { defineConfig, devices } from '@playwright/test';
  * See https://playwright.dev/docs/test-configuration.
  */
 export default defineConfig({
-  testDir: './tests',
-  // testMatch:[
-  //   "tests/SearchTest.test.ts"
-  // ],
-
+  // testDir: './tests',
+  testMatch: [
+    "tests/searchpage.test.ts",
+    //"tests/cartSelectionPage.test.ts"
+  ],
+  // globalSetup: "src/utilies/globalSetup.ts",
   /* Run tests in files in parallel */
-  fullyParallel: true,
+  fullyParallel: false,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
   forbidOnly: !!process.env.CI,
   /* Retry on CI only */
@@ -30,10 +31,11 @@ export default defineConfig({
     //headless property will help the browser to run in headed or in headless mode
     headless: true,
     /* Base URL to use in actions like `await page.goto('/')`. */
-    // baseURL: 'http://127.0.0.1:3000',
+    // baseURL: 'https://bookcart.azurewebsites.net/',
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
+
   },
 
   /* Configure projects for major browsers */
