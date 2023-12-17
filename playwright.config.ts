@@ -14,6 +14,7 @@ export default defineConfig({
   testMatch: [
     "tests/searchpage.test.ts",
     //"tests/cartSelectionPage.test.ts"
+    // "tests/homepage.test.ts"
   ],
   // globalSetup: "src/utilies/globalSetup.ts",
   /* Run tests in files in parallel */
@@ -27,11 +28,13 @@ export default defineConfig({
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: 'html',
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
+
+
   use: {
     //headless property will help the browser to run in headed or in headless mode
     headless: true,
     /* Base URL to use in actions like `await page.goto('/')`. */
-    // baseURL: 'https://bookcart.azurewebsites.net/',
+    baseURL: 'https://bookcart.azurewebsites.net/',
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
