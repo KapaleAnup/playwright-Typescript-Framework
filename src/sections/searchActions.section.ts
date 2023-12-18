@@ -15,6 +15,7 @@ export default class SearcPageActions {
 
     //Action
     public async searchBookData(bookName: string) {
+        await this.page.waitForTimeout(1000)
         await this.searchText().fill(bookName)
         await this.selectsearchedText().click()
     }
