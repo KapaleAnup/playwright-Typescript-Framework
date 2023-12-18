@@ -5,6 +5,9 @@ import HomePage from "../pages/homePage.page";
 import RegistratonPage from "../pages/registrationPage.page";
 import LoginPage from "../pages/loginPage.page";
 import CheckOutPage from "../pages/checkoutPage.page";
+import MyOrdersPage from "../pages/myOrderPage.page";
+import LogoutPage from "../pages/logoutPage.page";
+import WishlistPage from "../pages/wishlistPage.page";
 
 
 //extend the base test 
@@ -15,7 +18,9 @@ export const test = base.extend<{
     registratonPage: RegistratonPage
     loginPage: LoginPage
     checkoutPage: CheckOutPage
-
+    myOrderPage: MyOrdersPage
+    logoutPage: LogoutPage
+    wishlistPage: WishlistPage
 }>({
     //define fixture
     searchPage: async ({ page }, use) => {
@@ -35,6 +40,15 @@ export const test = base.extend<{
     },
     checkoutPage: async ({ page }, use) => {
         await use(new CheckOutPage(page))
+    },
+    myOrderPage: async ({ page }, use) => {
+        await use(new MyOrdersPage(page))
+    },
+    logoutPage: async ({ page }, use) => {
+        await use(new LogoutPage(page))
+    },
+    wishlistPage: async ({ page }, use) => {
+        await use(new WishlistPage(page))
     },
 
 })

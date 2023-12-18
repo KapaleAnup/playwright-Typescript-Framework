@@ -12,9 +12,12 @@ import { defineConfig, devices } from '@playwright/test';
 export default defineConfig({
   // testDir: './tests',
   testMatch: [
+    "tests/wishlistPage.test.ts",
+    // "tests/logoutPage.test.ts",
+    // "tests/myOrderPage.test.ts",
     // "tests/loginPage.test.ts"
     //"tests/registrationPage.test.ts",
-    "tests/searchpage.test.ts",
+    // "tests/searchpage.test.ts",
     //"tests/cartSelectionPage.test.ts"
     // "tests/homepage.test.ts"
   ],
