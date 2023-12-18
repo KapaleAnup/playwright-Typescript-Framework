@@ -13,6 +13,9 @@ export default class CartSelectionAction {
     cartBadgeCount = () => this.page.locator("//span[@class='mat-badge-content mat-badge-active']")
     cartItems = () => this.page.locator('button').filter({ hasText: 'shopping_cart1' })
     clickOnAddItemBtn = () => this.page.locator('button').filter({ hasText: 'add_circle' });
+    totalAmount = () => this.page.locator('td:nth-child(5)')
+
+    checkoutBtn = () => this.page.getByText('CheckOut');
 
     //mat-icon[normalize-space()='shopping_cart']
 
@@ -24,12 +27,20 @@ export default class CartSelectionAction {
         } else {
             throw new Error("Book amount not available")
         }
-
+        await this.page.waitForTimeout(1000)
         let badgeCount = await this.cartBadgeCount().textContent()
         console.log("Added cart count is :" + badgeCount)
-
+        await this.page.waitForTimeout(1000)
         await this.cartItems().click();
-
+        await this.page.waitForTimeout(2000)
         await this.clickOnAddItemBtn().click();
+
+        let totalPrice = await this.totalAmount().textContent();
+        console.log("Total Price is :", totalPrice)
+
+        if (totalPrice != null || totalPrice == " ") {
+            await this.checkoutBtn().click();
+            console.log("Checkout button has been clicked.")
+        }
     }
 }
