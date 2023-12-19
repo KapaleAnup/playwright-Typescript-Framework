@@ -12,14 +12,14 @@ import { defineConfig, devices } from '@playwright/test';
 export default defineConfig({
   testDir: './tests',
   testMatch: [
-    // "tests/wishlistPage.test.ts",
-    // "tests/logoutPage.test.ts",
-    // "tests/myOrderPage.test.ts",
-    // "tests/loginPage.test.ts"
-    //"tests/registrationPage.test.ts",
+    // "tests/registrationPage.test.ts",
+    "tests/loginPage.test.ts",
+    "tests/logoutPage.test.ts",
     "tests/searchpage.test.ts",
-    //"tests/cartSelectionPage.test.ts"
-    // "tests/homepage.test.ts"
+    // "tests/wishlistPage.test.ts",
+    // "tests/myOrderPage.test.ts",
+    // "tests/cartSelectionPage.test.ts",
+    //  "tests/homepage.test.ts"
   ],
   globalSetup: "src/utilies/globalSetup.ts",
   /* Run tests in files in parallel */
@@ -27,7 +27,7 @@ export default defineConfig({
   /* Fail the build on CI if you accidentally left test.only in the source code. */
   forbidOnly: !!process.env.CI,
   /* Retry on CI only */
-  retries: process.env.CI ? 2 : 0,
+  retries: process.env.CI ? 1 : 0,
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
