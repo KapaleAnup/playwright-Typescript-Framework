@@ -6,7 +6,6 @@ test.beforeEach(async ({ page }) => {
     await page.goto("/")
 })
 
-
 test.describe("verify the user is able to login", () => {
 
     test("Login with valid Credentials", async ({ loginPage, homePage }) => {
