@@ -10,18 +10,18 @@ import { defineConfig, devices } from '@playwright/test';
  * See https://playwright.dev/docs/test-configuration.
  */
 export default defineConfig({
-  // testDir: './tests',
+  testDir: './tests',
   testMatch: [
-    "tests/wishlistPage.test.ts",
+    // "tests/wishlistPage.test.ts",
     // "tests/logoutPage.test.ts",
     // "tests/myOrderPage.test.ts",
     // "tests/loginPage.test.ts"
     //"tests/registrationPage.test.ts",
-    // "tests/searchpage.test.ts",
+    "tests/searchpage.test.ts",
     //"tests/cartSelectionPage.test.ts"
     // "tests/homepage.test.ts"
   ],
-  // globalSetup: "src/utilies/globalSetup.ts",
+  globalSetup: "src/utilies/globalSetup.ts",
   /* Run tests in files in parallel */
   fullyParallel: false,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
