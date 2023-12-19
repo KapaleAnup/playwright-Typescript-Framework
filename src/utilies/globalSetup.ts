@@ -1,15 +1,17 @@
-// import { FullConfig } from "@playwright/test";
+import { FullConfig } from "@playwright/test";
 
-// import dotenv from "dotenv"
+import dotenv from "dotenv"
 
-// async function globalSetup(config: FullConfig) {
+async function globalSetup(config: FullConfig) {
 
-//     if (process.env.env_value) {
+    if (process.env.env_name) {
 
-//         dotenv.config({
-//             path: `./env/.env.${process.env.env_value}`,
-//             override: true
-//         })
-//     }
+        dotenv.config({
+            path: `./env/.env.${process.env.env_name}`,
+            override: true
+        })
+    }
 
-// }
+}
+
+export default globalSetup
