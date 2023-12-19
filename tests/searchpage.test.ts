@@ -10,21 +10,14 @@ test.beforeEach(async ({ page }) => {
 
 test.describe("Search and add the book into the cart", async () => {
     test("Search and add the book into the cart", async ({ page, searchPage, cartSelectionPage, loginPage, checkoutPage }) => {
-
-        //  await page.goto("https://bookcart.azurewebsites.net/");
         await expect(page.getByText('Login')).toBeVisible();
         await searchPage.searchBook(data.bookName)
-        await expect(page.getByRole('link', { name: 'The Simple Wild' })).toBeVisible();
-
+        await expect(page.getByRole('link', { name: data.bookName })).toBeVisible();
         await cartSelectionPage.addBookToCart();
         await loginPage.doLogin(loginData.userName, loginData.password)
-
-        // await checkoutPage.OrderSummaryDetails()
         await checkoutPage.
             placeOrder(shippingData.firstName, shippingData.address1,
                 shippingData.address2, shippingData.pincode, shippingData.state)
-
-        // await page.close()
     })
 
 
